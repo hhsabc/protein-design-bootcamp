@@ -8,8 +8,14 @@ This is my learning record for AI-driven protein design. I am currently an under
 - [x] Cloned and installed ProteinMPNN.
 - [x] Ran local CPU inference on a test PDB structure (1BC8).
 - [x] Generated novel sequences (scores: ~0.92, seq_recovery: ~50%).
+- [x] **Successfully ran RFdiffusion on AutoDL cloud GPU.**
+- [x] **Generated a de novo 80-residue backbone.**
 
-## Next Steps
-- Generate a 80-residue de novo backbone using RFdiffusion (via Colab).
-- Run ProteinMPNN on the designed backbone.
-- Validate the generated sequences using RoseTTAFold.
+## Results
+- [View the de novo 80-residue backbone (PDB)](./my_80_residue_0.pdb)
+- [View the test PDB structure (PDB)](./1BC8.pdb)
+
+
+ ## Next Steps
+- [ ] Run ProteinMPNN on the generated 80-residue backbone to design novel sequences.
+- [ ] Validate the generated sequences using RoseTTAFold.
