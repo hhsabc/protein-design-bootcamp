@@ -1,0 +1,35 @@
+import warnings
+warnings.filterwarnings("ignore")
+from Bio.PDB import PDBParser, PDBIO, Superimposer
+
+# 1. 读取两个 PDB 文件
+parser = PDBParser(QUIET=True)
+structure_green = parser.get_structure("green", "my_80_residue_0.pdb")
+structure_red = parser.get_structure("red", "predicted_structure.pdb")
+
+# 2. 提取 C-alpha 原子 (蛋白质骨架的核心原子)
+atoms_green = [atom for atom in structure_green.get_atoms() if atom.name == "CA"]
+atoms_red = [atom for atom in structure_red.get_atoms() if atom.name == "CA"]
+
+# 确保两个结构的氨基酸数量一致
+if len(atoms_green) != len(atoms_red):
+    print(f"错误: 数量不匹配! 绿: {len(atoms_green)}, 红: {len(atoms_red)}")
+    exit()
+
+# 3. 使用 Biopython 的 Superimposer 自动计算旋转平移矩阵并对齐
+super_imposer = Superimposer()
+super_imposer.set_atoms(atoms_green, atoms_red)
+
+# 4. 把算好的矩阵应用到红色结构上
+super_imposer.apply(structure_red.get_atoms())
+
+print(f"对齐完成！两者的 RMSD (均方根误差) 为: {super_imposer.rms:.3f} Å")
+print("RMSD越小说明重叠越完美。一般小于2.0就算高度相似了。")
+
+# 5. 把完美重合的红结构保存成一个新文件
+io = PDBIO()
+io.set_structure(structure_red)
+io.save("superimposed_red.pdb")
+print("已生成完美重叠的文件: superimposed_red.pdb")
+
+
