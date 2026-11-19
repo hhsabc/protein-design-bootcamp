@@ -10,6 +10,7 @@ This is my learning record for AI-driven protein design. I am an undergraduate s
 - [x] **Successfully ran RFdiffusion on AutoDL cloud GPU to generate a de novo 80-residue backbone.**
 - [x] **Designed novel sequences for the de novo backbone using local ProteinMPNN.**
 - [x] **Validated the designed sequences using HelixFold (AlphaFold). The predicted structure retains the core alpha-helical topology.**
+ - [x] **Wrote a Python script (Biopython) to superimpose structures (RMSD = 2.69 Å).**
 
 ## Results
 
@@ -22,6 +23,10 @@ This is my learning record for AI-driven protein design. I am an undergraduate s
 - [Designed sequences for the backbone](./my_80_residue_0.fa)
 - [Predicted structure](./predicted_structure.pdb)
 - [Structure Validation Screenshot](./validation_result.png)
+
+- ###3.
+- [Validation Screenshot](./superposition_validation.png)
+- [Python Superposition Script](./superpose.py)
 
 ## Next Steps
 - [ ] Attempt motif scaffolding using RFdiffusion (e.g., RSV-F 163-181).
