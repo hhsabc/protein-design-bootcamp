@@ -22,10 +22,9 @@ This is my learning record for AI-driven protein design. I am an undergraduate s
 - [Original de novo backbone](./my_80_residue_0.pdb)
 - [Designed sequences for the backbone](./my_80_residue_0.fa)
 - [Predicted structure](./predicted_structure.pdb)
-- [Structure Validation Screenshot](./validation_result.png)
 
-- ###3.
-- [Validation Screenshot](./superposition_validation.png)
+### 3. Code & Scripts
+- [Validation Screenshot (Superposition)](./superposition_validation.png)
 - [Python Superposition Script](./superpose.py)
 
 ## Next Steps
